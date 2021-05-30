@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar color="success">
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Guia Comercial</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar color="success">
+
+    <ion-segment scrollable value="heart">
+      <ion-segment-button value="basket">
+        <ion-icon name="basket"></ion-icon>
+        <ion-label>LOJA</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="home">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>BEBIDAS</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="heart">
+        <ion-icon name="heart"></ion-icon>
+        <ion-label>RESTAURANTE</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="pin">
+        <ion-icon name="pin"></ion-icon>
+        <ion-label>MOBILIDADE</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="star">
+        <ion-icon name="star"></ion-icon>
+        <ion-label>PET</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="call">
+        <ion-icon name="call"></ion-icon>
+        <ion-label>MECÂNICA</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="globe">
+        <ion-icon name="globe"></ion-icon>
+        <ion-label>IMOBILIÁRIA</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-img src="../../../assets/imagens/anuncie_aqui.png"></ion-img>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>EMPRESAS</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-slides mode="md" pager="md" scrollbar="md" [options]="slideOpts">
+        <ion-slide>
+          <ion-img src="../../../assets/imagens/lanche.jpg"></ion-img>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-img src="../../../assets/imagens/pizza.jpg"></ion-img>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-img src="../../../assets/imagens/restaurante.jpg"></ion-img>
+        </ion-slide>
+
+      </ion-slides>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>PROMOÇÕES</ion-card-subtitle>
+      <!-- <ion-card-title>Ofertas em destaque</ion-card-title> -->
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-slides mode="md" pager="md" scrollbar="md" [options]="slideOpts">
+        <ion-slide>
+          <ion-img src="../../../assets/imagens/lanche.jpg"></ion-img>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-img src="../../../assets/imagens/pizza.jpg"></ion-img>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-img src="../../../assets/imagens/restaurante.jpg"></ion-img>
+        </ion-slide>
+
+      </ion-slides>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
