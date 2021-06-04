@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./_modulos/ofertas/ofertas.module').then(m => m.OfertasPageModule)
   },
   {
+    path: 'empresas',
+    loadChildren: () => import('./_modulos/empresas/empresas.module').then(m => m.EmpresasPageModule)
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'

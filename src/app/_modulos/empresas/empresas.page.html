@@ -2,13 +2,29 @@
   <ion-toolbar color="tertiary">
 
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="/categorias"></ion-back-button>
     </ion-buttons>
 
-    <ion-title>empresas</ion-title>
+    <ion-title>Empresas</ion-title>
   </ion-toolbar>
+
+  <ion-toolbar color="tertiary">
+    <ion-searchbar placeholder="Procurar"></ion-searchbar>
+  </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
+
+  <ion-list *ngFor="let emp of empresas">
+
+    <ion-item button [routerLink]="['/empresas',emp.id]">
+      <ion-thumbnail slot="start">
+        <img src="{{emp.url_logo}}">
+      </ion-thumbnail>
+      <ion-label>{{emp.fantasia}}</ion-label>
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>

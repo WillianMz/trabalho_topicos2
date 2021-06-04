@@ -1,3 +1,4 @@
+import { EmpresaPerfilComponent } from './empresa-perfil/empresa-perfil.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -7,6 +8,14 @@ const routes: Routes = [
   {
     path: '',
     component: EmpresasPage
+  },
+  {
+    path: 'categoria/:id',
+    component: EmpresasPage
+  },
+  {
+    path: ':id',
+    component: EmpresaPerfilComponent
   }
 ];
 

@@ -16,57 +16,13 @@
 
 <ion-content>
 
-  <!-- <ion-searchbar placeholder="Filtrar categorias"></ion-searchbar> -->
+  <ion-list *ngFor="let catg of categorias">
 
-  <ion-list>
-
-    <ion-item button>
+    <ion-item button [routerLink]="['/empresas/categoria/', catg.id]">
       <ion-thumbnail slot="start">
-        <img src="../../../assets/imagens/comercio.jpg">
+        <img src="{{catg.url_img}}">
       </ion-thumbnail>
-      <ion-label>Alimentos & Bebidas</ion-label>
-    </ion-item>
-
-    <ion-item button>
-      <ion-thumbnail slot="start">
-        <img src="../../../assets/imagens/comercio.jpg">
-      </ion-thumbnail>
-      <ion-label>Agronegócios</ion-label>
-    </ion-item>
-
-    <ion-item button>
-      <ion-thumbnail slot="start">
-        <img src="../../../assets/imagens/comercio.jpg">
-      </ion-thumbnail>
-      <ion-label>Construção e Decoração</ion-label>
-    </ion-item>
-
-    <ion-item button>
-      <ion-thumbnail slot="start">
-        <img src="../../../assets/imagens/comercio.jpg">
-      </ion-thumbnail>
-      <ion-label>Padarias</ion-label>
-    </ion-item>
-
-    <ion-item button>
-      <ion-thumbnail slot="start">
-        <img src="../../../assets/imagens/comercio.jpg">
-      </ion-thumbnail>
-      <ion-label>Supermercados</ion-label>
-    </ion-item>
-
-    <ion-item button>
-      <ion-thumbnail slot="start">
-        <img src="../../../assets/imagens/comercio.jpg">
-      </ion-thumbnail>
-      <ion-label>Farmácias</ion-label>
-    </ion-item>
-
-    <ion-item button>
-      <ion-thumbnail slot="start">
-        <img src="../../../assets/imagens/comercio.jpg">
-      </ion-thumbnail>
-      <ion-label>Hotéis</ion-label>
+      <ion-label>{{catg.nome}}</ion-label>
     </ion-item>
 
   </ion-list>

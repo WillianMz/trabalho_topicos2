@@ -1,3 +1,4 @@
+import { EmpresaPerfilComponent } from './empresa-perfil/empresa-perfil.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,9 @@ import { EmpresasPage } from './empresas.page';
     IonicModule,
     EmpresasPageRoutingModule
   ],
-  declarations: [EmpresasPage]
+  declarations: [
+    EmpresasPage,
+    EmpresaPerfilComponent
+  ]
 })
 export class EmpresasPageModule {}
