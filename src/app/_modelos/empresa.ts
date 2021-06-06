@@ -17,4 +17,13 @@ export class Empresa {
 
   categoriaId?: number;
   categoriaNome?: string;
+
+  //horario
+  dom?: string;
+  seg?: string;
+  ter?: string;
+  qua?: string;
+  qui?: string;
+  sex?: string;
+  sab?: string;
 }

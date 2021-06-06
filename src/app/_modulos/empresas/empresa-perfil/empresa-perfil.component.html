@@ -9,3 +9,137 @@
   </ion-toolbar>
 
 </ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-img [src]="[empresa.url_logo]"></ion-img>
+
+    <ion-card-content>
+      <h1><strong>{{empresa.fantasia}}</strong></h1>
+      <h3>{{empresa.nome}}</h3>
+      <p>
+        {{empresa.endereco}} - {{empresa.cidadeNome}}
+      </p>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Sobre a empresa</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        {{empresa.sobre}}
+      </p>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Contatos</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-list lines="none">
+        <ion-item button>
+          <ion-icon slot="start" name="call-outline"></ion-icon>
+          <ion-label>{{empresa.telefone}}</ion-label>
+        </ion-item>
+
+        <ion-item button>
+          <ion-icon slot="start" name="logo-whatsapp"></ion-icon>
+          <ion-label>{{empresa.whatsapp}}</ion-label>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Links</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-card-content>
+
+        <ion-list lines="none">
+
+          <ion-item button>
+            <ion-icon slot="start" name="navigate-circle-outline"></ion-icon>
+            <ion-label>Mapa</ion-label>
+          </ion-item>
+
+          <ion-item button>
+            <ion-icon slot="start" name="mail-outline"></ion-icon>
+            <ion-label>Email</ion-label>
+          </ion-item>
+
+          <ion-item button href="{{empresa.facebook}}">
+            <ion-icon slot="start" name="logo-facebook"></ion-icon>
+            <ion-label>Facebook</ion-label>
+          </ion-item>
+
+          <ion-item button href="{{empresa.instagram}}">
+            <ion-icon slot="start" name="logo-instagram"></ion-icon>
+            <ion-label>Instagram</ion-label>
+          </ion-item>
+
+        </ion-list>
+      </ion-card-content>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Horário de atendimento</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-list>
+
+        <ion-item>
+          <ion-label>Domingo: {{empresa.dom}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Segunda-feira: {{empresa.seg}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Terça-feira: {{empresa.ter}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Quarta-feira: {{empresa.qua}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Quinta-feira: {{empresa.qui}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Sexta-feira: {{empresa.sex}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Sábado: {{empresa.sab}}</ion-label>
+        </ion-item>
+
+      </ion-list>
+
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

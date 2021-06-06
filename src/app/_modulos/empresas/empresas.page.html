@@ -9,14 +9,22 @@
   </ion-toolbar>
 
   <ion-toolbar color="tertiary">
-    <ion-searchbar placeholder="Procurar"></ion-searchbar>
+    <ion-toolbar color="tertiary">
+      <ion-searchbar
+        placeholder="Procurar"
+        [(ngModel)]="filtro"
+        (keyup)="procurar($event)"
+        showCancelButton
+        (ionClear)="limparConsulta()">
+      </ion-searchbar>
+    </ion-toolbar>
   </ion-toolbar>
 
 </ion-header>
 
 <ion-content>
 
-  <ion-list *ngFor="let emp of empresas">
+  <ion-list *ngFor="let emp of empresasFiltradas">
 
     <ion-item button [routerLink]="['/empresas',emp.id]">
       <ion-thumbnail slot="start">
@@ -26,5 +34,9 @@
     </ion-item>
 
   </ion-list>
+
+  <ion-item lines="none" *ngIf="!empresasFiltradas?.length">
+    <ion-label>Nenhum resultado encontrado!</ion-label>
+  </ion-item>
 
 </ion-content>
