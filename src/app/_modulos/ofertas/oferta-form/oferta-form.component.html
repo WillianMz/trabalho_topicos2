@@ -2,7 +2,7 @@
   <ion-toolbar color="tertiary">
 
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/ofertas"></ion-back-button>
+      <ion-back-button defaultHref="/ofertas"></ion-back-button>
     </ion-buttons>
 
     <ion-title>Detalhes da oferta</ion-title>
@@ -13,39 +13,39 @@
 
   <ion-slides mode="md" pager="md" scrollbar="md">
     <ion-slide>
-      <img src="../../../../assets/imagens/promo_gas.webp" alt="" height="40" width="40">
-      <!-- <ion-img src="../../../../assets/imagens/promo_gas.webp"></ion-img> -->
-    </ion-slide>
-
-    <ion-slide>
-      <ion-img src="../../../../assets/imagens/promo4.jpg"></ion-img>
-    </ion-slide>
+      <img [src]="[oferta.url_img]" alt="" height="40" width="40">
+     </ion-slide>
 
   </ion-slides>
 
   <ion-card >
-    <ion-card-content>
-
-    </ion-card-content>
 
     <ion-card-header>
-      <ion-card-subtitle>Disk Delivery</ion-card-subtitle>
-      <ion-card-title>DISTRIBUIDORA MONTEIRO</ion-card-title>
+      <ion-card-subtitle>{{oferta.empresaNome}}</ion-card-subtitle>
+      <ion-card-title>{{oferta.descricao}}</ion-card-title>
     </ion-card-header>
   </ion-card>
 
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>DETALHES DA PROMOÇÃO</ion-card-subtitle>
-      <ion-card-title>Awesome Title</ion-card-title>
     </ion-card-header>
+    <ion-card-content>
+      <p>
+        {{oferta.detalhes}}
+      </p>
+    </ion-card-content>
   </ion-card>
 
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>MAIS INFORMAÇÕES</ion-card-subtitle>
-      <ion-card-title>Awesome Title</ion-card-title>
     </ion-card-header>
+    <ion-card-content>
+      <p>
+        {{oferta.informacoes}}
+      </p>
+    </ion-card-content>
   </ion-card>
 
 </ion-content>

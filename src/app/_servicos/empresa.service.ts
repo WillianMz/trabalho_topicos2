@@ -29,4 +29,9 @@ export class EmpresaService {
     return response;
   }
 
+  getDestaque(): Observable<Empresa[]>{
+    let response = this.http.get<Empresa[]>(`${this.url}?destaque=true`);
+    return response;
+  }
+
 }

@@ -26,4 +26,6 @@ export class Empresa {
   qui?: string;
   sex?: string;
   sab?: string;
+
+  destaque: boolean;
 }

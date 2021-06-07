@@ -10,7 +10,7 @@ const routes: Routes = [
     component: OfertasPage
   },
   {
-    path: 'novo',
+    path: ':id',
     component: OfertaFormComponent
   }
 ];

@@ -20,4 +20,9 @@ export class CategoriaService {
     return response;
   }
 
+  getDestaque(): Observable<Categoria[]>{
+    let response = this.http.get<Categoria[]>(`${this.url}?destaque=true`);
+    return response;
+  }
+
 }
