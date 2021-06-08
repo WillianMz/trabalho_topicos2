@@ -34,4 +34,24 @@ export class EmpresaService {
     return response;
   }
 
+  excluir(id: number): Observable<object> {
+    return this.http.delete(`${this.url}/${id}`);
+  }
+
+  private adicionar(empresa: Empresa) {
+   return this.http.post(this.url, empresa);
+  }
+
+  private atualizar(empresa: Empresa) {
+   return this.http.put(`${this.url}/${empresa.id}`, empresa);
+  }
+
+  salvar(empresa: Empresa) {
+    if(empresa.id) {
+     return this.atualizar(empresa);
+    } else {
+     return this.adicionar(empresa);
+    }
+  }
+
 }

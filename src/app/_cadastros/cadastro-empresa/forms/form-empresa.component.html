@@ -1,0 +1,180 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Cadastro de empresa</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+  
+    <form [formGroup]="empresaForm">
+      <ion-item>
+        <ion-label position="floating">Nome: </ion-label>
+        <ion-input formControlName="nome"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Fantasia: </ion-label>
+        <ion-input formControlName="fantasia"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Sobre: </ion-label>
+        <ion-input formControlName="sobre"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Horário: </ion-label>
+        <ion-input formControlName="horario"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Endereço: </ion-label>
+        <ion-input formControlName="endereco"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Cidade: </ion-label>
+        <ion-input formControlName="cidadeId"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Cidade: </ion-label>
+        <ion-input formControlName="cidadeNome"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Telefone: </ion-label>
+        <ion-input formControlName="telefone"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">WhatsApp: </ion-label>
+        <ion-input formControlName="whatsapp"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Facebook: </ion-label>
+        <ion-input formControlName="facebook"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Instagram: </ion-label>
+        <ion-input formControlName="instagram"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">URL logo: </ion-label>
+        <ion-input formControlName="url_logo"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">URL capa: </ion-label>
+        <ion-input formControlName="url_capa"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Categoria: </ion-label>
+        <ion-input formControlName="categoriaId"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Categoria: </ion-label>
+        <ion-input formControlName="categoriaNome"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">dom: </ion-label>
+        <ion-input formControlName="dom"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">seg: </ion-label>
+        <ion-input formControlName="seg"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">ter: </ion-label>
+        <ion-input formControlName="ter"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">qua: </ion-label>
+        <ion-input formControlName="qua"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">qui: </ion-label>
+        <ion-input formControlName="qui"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">sex: </ion-label>
+        <ion-input formControlName="sex"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">sab: </ion-label>
+        <ion-input formControlName="sab"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Destaque: </ion-label>
+        <ion-input formControlName="destaque"
+                   type="text">
+        </ion-input>
+      </ion-item>
+  
+      <ion-fab vertical="bottom"
+               horizontal="end">
+        <ion-fab-button (click)="salvar()" [disabled]="!empresaForm.valid">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </form>
+  </ion-content>

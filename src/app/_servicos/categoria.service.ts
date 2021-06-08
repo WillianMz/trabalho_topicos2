@@ -25,4 +25,28 @@ export class CategoriaService {
     return response;
   }
 
+  getCategoriaById(id: number): Observable<Categoria> {
+    return this.http.get<Categoria>(`${this.url}/${id}`);
+  }
+
+  excluir(id: number): Observable<object> {
+    return this.http.delete(`${this.url}/${id}`);
+  }
+
+  private adicionar(categoria: Categoria) {
+   return this.http.post(this.url, categoria);
+  }
+
+  private atualizar(categoria: Categoria) {
+   return this.http.put(`${this.url}/${categoria.id}`, categoria);
+  }
+
+  salvar(categoria: Categoria) {
+    if(categoria.id) {
+     return this.atualizar(categoria);
+    } else {
+     return this.adicionar(categoria);
+    }
+  }
+
 }

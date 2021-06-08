@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Cadastro de categoria</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+  
+    <form [formGroup]="categoriaForm">
+      <ion-item>
+        <ion-label position="floating">Nome: </ion-label>
+        <ion-input formControlName="nome"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">URL logo: </ion-label>
+        <ion-input formControlName="url_img"
+                   type="text">
+        </ion-input>
+      </ion-item>
+  
+      <ion-fab vertical="bottom"
+               horizontal="end">
+        <ion-fab-button (click)="salvar()" [disabled]="!categoriaForm.valid">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </form>
+  </ion-content>

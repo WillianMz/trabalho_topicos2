@@ -1,0 +1,82 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Cadastro de oferta</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+  
+    <form [formGroup]="ofertaForm">
+      <ion-item>
+        <ion-label position="floating">Descrição: </ion-label>
+        <ion-input formControlName="descricao"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Data de início: </ion-label>
+        <ion-input formControlName="dtInicio"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Data final: </ion-label>
+        <ion-input formControlName="dtFim"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Empresa: </ion-label>
+        <ion-input formControlName="empresaID"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Empresa: </ion-label>
+        <ion-input formControlName="empresaNome"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Detalhes: </ion-label>
+        <ion-input formControlName="detalhes"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Informacoes: </ion-label>
+        <ion-input formControlName="informacoes"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">URL imagem: </ion-label>
+        <ion-input formControlName="url_img"
+                   type="text">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Destaque: </ion-label>
+        <ion-input formControlName="destaque"
+                   type="text">
+        </ion-input>
+      </ion-item>
+  
+      <ion-fab vertical="bottom"
+               horizontal="end">
+        <ion-fab-button (click)="salvar()" [disabled]="!ofertaForm.valid">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </form>
+  </ion-content>

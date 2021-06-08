@@ -34,4 +34,24 @@ export class OfertaService {
     return response;
   }
 
+  excluir(id: number): Observable<object> {
+    return this.http.delete(`${this.url}/${id}`);
+  }
+
+  private adicionar(oferta: Oferta) {
+   return this.http.post(this.url, oferta);
+  }
+
+  private atualizar(oferta: Oferta) {
+   return this.http.put(`${this.url}/${oferta.id}`, oferta);
+  }
+
+  salvar(oferta: Oferta) {
+    if(oferta.id) {
+     return this.atualizar(oferta);
+    } else {
+     return this.adicionar(oferta);
+    }
+  }
+
 }

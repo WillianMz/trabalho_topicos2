@@ -22,7 +22,23 @@ const routes: Routes = [
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
+  },  {
+    path: 'cadastro-home',
+    loadChildren: () => import('./_cadastros/cadastro-home/cadastro-home.module').then( m => m.CadastroHomePageModule)
+  },
+  {
+    path: 'cadastro-empresa',
+    loadChildren: () => import('./_cadastros/cadastro-empresa/cadastro-empresa.module').then( m => m.CadastroEmpresaPageModule)
+  },
+  {
+    path: 'cadastro-categoria',
+    loadChildren: () => import('./_cadastros/cadastro-categoria/cadastro-categoria.module').then( m => m.CadastroCategoriaPageModule)
+  },
+  {
+    path: 'cadastro-oferta',
+    loadChildren: () => import('./_cadastros/cadastro-oferta/cadastro-oferta.module').then( m => m.CadastroOfertaPageModule)
   }
+
 ];
 @NgModule({
   imports: [
