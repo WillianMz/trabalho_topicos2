@@ -12,6 +12,9 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let categoria of categorias">
+      <ion-thumbnail slot="start">
+        <ion-img src={{categoria.url_img}}></ion-img>
+      </ion-thumbnail>
       <ion-label>{{categoria.nome}}</ion-label>
       <ion-buttons>
         <ion-button color="primary" [routerLink]="['edicao', categoria.id]">

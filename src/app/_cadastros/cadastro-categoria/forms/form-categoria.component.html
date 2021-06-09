@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="tertiary">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -14,13 +14,32 @@
         <ion-input formControlName="nome"
                    type="text">
         </ion-input>
+        <ion-text color="danger" *ngIf="nome.errors">
+          <small *ngIf="nome.errors.required && (nome.dirty || nome.touched)">
+            O campo Nome é obrigatório
+          </small>
+          <small *ngIf="nome.errors.minlength && (nome.dirty || nome.touched)">
+            O campo Nome deve conter no mínimo {{nome.errors.minlength.requiredLength}} caracteres
+          </small>
+          <small *ngIf="nome.errors.maxlength && (nome.dirty || nome.touched)">
+            O campo Nome deve conter no máximo {{nome.errors.maxlength.requiredLength}} caracteres
+          </small>
+        </ion-text>
       </ion-item>
       
       <ion-item>
-        <ion-label position="floating">URL logo: </ion-label>
+        <ion-label position="floating">URL da imagem: </ion-label>
         <ion-input formControlName="url_img"
                    type="text">
         </ion-input>
+        <ion-text color="danger" *ngIf="url_img.errors">
+          <small *ngIf="url_img.errors.required && (url_img.dirty || url_img.touched)">
+            O campo URL da imagem é obrigatório
+          </small>
+          <small *ngIf="url_img.errors.minlength && (url_img.dirty || url_img.touched)">
+            O campo URL da imagem deve conter no mínimo {{url_img.errors.minlength.requiredLength}} caracteres
+          </small>
+        </ion-text>
       </ion-item>
   
       <ion-fab vertical="bottom"

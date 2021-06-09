@@ -8,6 +8,7 @@ import { CadastroCategoriaPageRoutingModule } from './cadastro-categoria-routing
 
 import { CadastroCategoriaPage } from './cadastro-categoria.page';
 import { FormCategoriaComponent } from './forms/form-categoria.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { FormCategoriaComponent } from './forms/form-categoria.component';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    CadastroCategoriaPageRoutingModule
+    CadastroCategoriaPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [CadastroCategoriaPage, FormCategoriaComponent]
 })
