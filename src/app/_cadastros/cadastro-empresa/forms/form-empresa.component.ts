@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { Categoria } from 'src/app/_modelos/categoria';
 import { Empresa } from 'src/app/_modelos/empresa';
+import { CategoriaService } from 'src/app/_servicos/categoria.service';
 import { EmpresaService } from 'src/app/_servicos/empresa.service';
 
 @Component({
@@ -12,6 +14,7 @@ import { EmpresaService } from 'src/app/_servicos/empresa.service';
 })
 export class FormEmpresaComponent implements OnInit {
 
+  private categorias: Categoria[];
   empresaId: number;
   empresaForm: FormGroup;
 
@@ -19,6 +22,7 @@ export class FormEmpresaComponent implements OnInit {
     private toastController: ToastController,
     private activatedRoute: ActivatedRoute,
     private empresaService: EmpresaService,
+    private categoriaService: CategoriaService,
     private router: Router,
   ) {
     
@@ -57,6 +61,7 @@ export class FormEmpresaComponent implements OnInit {
    }
 
    ngOnInit() {
+     this.categoriaService.getAll().subscribe(categorias => this.categorias = categorias);
      const id = this.activatedRoute.snapshot.paramMap.get('id');
      if (id) {
         this.empresaId = parseInt(id);
@@ -75,14 +80,20 @@ export class FormEmpresaComponent implements OnInit {
 
   inicializaFormulario(empresa: Empresa) {
     this.empresaForm = new FormGroup({
-        nome: new FormControl(empresa.nome),
-        fantasia: new FormControl(empresa.fantasia),
+        nome: new FormControl(empresa.nome, [
+          Validators.required,
+          Validators.minLength(3)
+        ]),
+        fantasia: new FormControl(empresa.fantasia, [
+          Validators.required,
+          Validators.minLength(3)
+        ]),
         sobre: new FormControl(empresa.sobre),
-        horario: new FormControl(empresa.horario),
+        // horario: new FormControl(empresa.horario),
         endereco: new FormControl(empresa.endereco),
-        cidadeId: new FormControl(empresa.cidadeId),
-        cidadeNome: new FormControl(empresa.cidadeNome),
-        telefone: new FormControl(empresa.telefone),
+        // cidadeId: new FormControl(empresa.cidadeId),
+        // cidadeNome: new FormControl(empresa.cidadeNome),
+        telefone: new FormControl(empresa.telefone, Validators.required),
         whatsapp: new FormControl(empresa.whatsapp),
         facebook: new FormControl(empresa.facebook),
         instagram: new FormControl(empresa.instagram),
@@ -90,7 +101,7 @@ export class FormEmpresaComponent implements OnInit {
         url_logo: new FormControl(empresa.url_logo),
         url_capa: new FormControl(empresa.url_capa),
 
-        categoriaId: new FormControl(empresa.categoriaId),
+        categoriaId: new FormControl(empresa.categoriaId, Validators.required),
         categoriaNome: new FormControl(empresa.categoriaNome),
 
         //horario
@@ -124,8 +135,38 @@ export class FormEmpresaComponent implements OnInit {
     
   }
 
+  setaDadosCategoria(event) {
+    if (event.detail.value) {
+       let categoriaId = parseInt(event.detail.value);
+       this.categoriaService
+        .getCategoriaById(categoriaId)
+        .subscribe((categoria) => {
+          this.empresaForm.setControl('categoriaNome', new FormControl(categoria.nome));
+        },
+        (erro) => {
+         console.error(erro);
+        }
+        );
+    }
+  }
+
   get nome() {
     return this.empresaForm.get('nome');
   }
 
+  get fantasia() {
+    return this.empresaForm.get('fantasia');
+  }
+
+  get telefone() {
+    return this.empresaForm.get('telefone');
+  }
+
+  get categoriaId() {
+    return this.empresaForm.get('categoriaId');
+  }
+
+  get categoriaNome() {
+    return this.empresaForm.get('categoriaNome');
+  }
 }

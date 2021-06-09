@@ -14,6 +14,11 @@
         <ion-input formControlName="descricao"
                    type="text">
         </ion-input>
+        <ion-text color="danger" *ngIf="descricao.errors">
+          <small *ngIf="descricao.errors.required && (descricao.dirty || descricao.touched)">
+            O campo Descrição é obrigatório
+          </small>
+        </ion-text>
       </ion-item>
 
       <ion-item>
@@ -25,6 +30,11 @@
                       done-text="Selecionar"
                       [monthNames]="meses"
                       [monthShortNames]="mesesAbreviados"></ion-datetime>
+        <ion-text color="danger" *ngIf="dtInicio.errors">
+          <small *ngIf="dtInicio.errors.required && (dtInicio.dirty || dtInicio.touched)">
+            O campo Data de início é obrigatório
+          </small>
+        </ion-text>
       </ion-item>
 
       <ion-item>
@@ -37,6 +47,11 @@
                       done-text="Selecionar"
                       [monthNames]="meses"
                       [monthShortNames]="mesesAbreviados"></ion-datetime>
+        <ion-text color="danger" *ngIf="dtFim.errors">
+          <small *ngIf="dtFim.errors.required && (dtFim.dirty || dtFim.touched)">
+            O campo Data final é obrigatório
+          </small>
+        </ion-text>
       </ion-item>
 
       <ion-item>
@@ -53,6 +68,11 @@
             {{empresa.nome}}
           </ion-select-option>
         </ion-select>
+        <ion-text color="danger" *ngIf="empresaID.errors">
+          <small *ngIf="empresaID.errors.required && (empresaID.dirty || empresaID.touched)">
+            O campo Empresa é obrigatório
+          </small>
+        </ion-text>
       </ion-item>
       
       <ion-item>

@@ -89,10 +89,10 @@ export class FormOfertaComponent implements OnInit {
 
   inicializaFormulario(oferta: Oferta) {
     this.ofertaForm = new FormGroup({
-        descricao: new FormControl(oferta.descricao),
-        dtInicio: new FormControl(oferta.dtInicio),
-        dtFim: new FormControl(oferta.dtFim),
-        empresaID:  new FormControl(oferta.empresaID),
+        descricao: new FormControl(oferta.descricao, Validators.required),
+        dtInicio: new FormControl(oferta.dtInicio, Validators.required),
+        dtFim: new FormControl(oferta.dtFim, Validators.required),
+        empresaID:  new FormControl(oferta.empresaID, Validators.required),
         empresaNome:  new FormControl(oferta.empresaNome),
         detalhes: new FormControl(oferta.detalhes),
         informacoes: new FormControl(oferta.informacoes),
@@ -138,16 +138,20 @@ export class FormOfertaComponent implements OnInit {
     return this.ofertaForm.get('descricao');
   }
 
-  get url_img() {
-    return this.ofertaForm.get('url_img');
+  get dtInicio() {
+    return this.ofertaForm.get('dtInicio');
   }
 
-  get empresaNome() {
-    return this.ofertaForm.get('empresaNome');
+  get dtFim() {
+    return this.ofertaForm.get('dtFim');
   }
 
   get empresaID() {
     return this.ofertaForm.get('empresaID');
+  }
+
+  get empresaNome() {
+    return this.ofertaForm.get('empresaNome');
   }
 
 }

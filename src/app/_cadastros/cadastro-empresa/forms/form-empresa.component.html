@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="tertiary">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -10,17 +10,33 @@
   
     <form [formGroup]="empresaForm">
       <ion-item>
-        <ion-label position="floating">Nome: </ion-label>
+        <ion-label position="floating">Razão social: </ion-label>
         <ion-input formControlName="nome"
                    type="text">
         </ion-input>
+        <ion-text color="danger" *ngIf="nome.errors">
+          <small *ngIf="nome.errors.required && (nome.dirty || nome.touched)">
+            O campo Razão social é obrigatório
+          </small>
+          <small *ngIf="nome.errors.minlength && (nome.dirty || nome.touched)">
+            O campo Razão social deve conter no mínimo {{nome.errors.minlength.requiredLength}} caracteres
+          </small>
+        </ion-text>
       </ion-item>
       
       <ion-item>
-        <ion-label position="floating">Fantasia: </ion-label>
+        <ion-label position="floating">Nome fantasia: </ion-label>
         <ion-input formControlName="fantasia"
                    type="text">
         </ion-input>
+        <ion-text color="danger" *ngIf="fantasia.errors">
+          <small *ngIf="fantasia.errors.required && (fantasia.dirty || fantasia.touched)">
+            O campo Nome fantasia é obrigatório
+          </small>
+          <small *ngIf="fantasia.errors.minlength && (fantasia.dirty || fantasia.touched)">
+            O campo Nome fantasia deve conter no mínimo {{fantasia.errors.minlength.requiredLength}} caracteres
+          </small>
+        </ion-text>
       </ion-item>
       
       <ion-item>
@@ -31,29 +47,8 @@
       </ion-item>
       
       <ion-item>
-        <ion-label position="floating">Horário: </ion-label>
-        <ion-input formControlName="horario"
-                   type="text">
-        </ion-input>
-      </ion-item>
-      
-      <ion-item>
         <ion-label position="floating">Endereço: </ion-label>
         <ion-input formControlName="endereco"
-                   type="text">
-        </ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="floating">Cidade: </ion-label>
-        <ion-input formControlName="cidadeId"
-                   type="text">
-        </ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="floating">Cidade: </ion-label>
-        <ion-input formControlName="cidadeNome"
                    type="text">
         </ion-input>
       </ion-item>
@@ -87,88 +82,118 @@
       </ion-item>
       
       <ion-item>
-        <ion-label position="floating">URL logo: </ion-label>
+        <ion-label position="floating">URL da logo: </ion-label>
         <ion-input formControlName="url_logo"
                    type="text">
         </ion-input>
       </ion-item>
       
       <ion-item>
-        <ion-label position="floating">URL capa: </ion-label>
+        <ion-label position="floating">URL da capa: </ion-label>
         <ion-input formControlName="url_capa"
                    type="text">
         </ion-input>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">Categoria: </ion-label>
-        <ion-input formControlName="categoriaId"
-                   type="text">
-        </ion-input>
+        <ion-select formControlName="categoriaId"
+                    [compareWith]="compareWith"
+                    multiple="false"
+                    ok-text="OK"
+                    cancel-text="Cancelar"
+                    name="categorias"
+                    (ionChange)='setaDadosCategoria($event)'>
+          <ion-select-option *ngFor="let categoria of categorias"
+                             [value]="categoria.id">
+            {{categoria.nome}}
+          </ion-select-option>
+        </ion-select>
+        <ion-text color="danger" *ngIf="categoriaId.errors">
+          <small *ngIf="categoriaId.errors.required && (categoriaId.dirty || categoriaId.touched)">
+            O campo Categoria é obrigatório
+          </small>
+        </ion-text>
       </ion-item>
-      
+
       <ion-item>
-        <ion-label position="floating">Categoria: </ion-label>
-        <ion-input formControlName="categoriaNome"
-                   type="text">
-        </ion-input>
+        <ion-label>Destaque? </ion-label>
+        <ion-checkbox formControlName="destaque"></ion-checkbox>
       </ion-item>
-      
-      <ion-item>
-        <ion-label position="floating">dom: </ion-label>
-        <ion-input formControlName="dom"
-                   type="text">
-        </ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="floating">seg: </ion-label>
-        <ion-input formControlName="seg"
-                   type="text">
-        </ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="floating">ter: </ion-label>
-        <ion-input formControlName="ter"
-                   type="text">
-        </ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="floating">qua: </ion-label>
-        <ion-input formControlName="qua"
-                   type="text">
-        </ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="floating">qui: </ion-label>
-        <ion-input formControlName="qui"
-                   type="text">
-        </ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="floating">sex: </ion-label>
-        <ion-input formControlName="sex"
-                   type="text">
-        </ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="floating">sab: </ion-label>
-        <ion-input formControlName="sab"
-                   type="text">
-        </ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="floating">Destaque: </ion-label>
-        <ion-input formControlName="destaque"
-                   type="text">
-        </ion-input>
-      </ion-item>
+
+      <ion-grid>
+        <ion-row>
+          <ion-text color="primary">
+            Horário de funcionamento
+          </ion-text>
+        </ion-row> 
+
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Domingo: </ion-label>
+              <ion-input formControlName="dom"
+                         type="text">
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Segunda: </ion-label>
+              <ion-input formControlName="seg"
+                         type="text">
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Terça: </ion-label>
+              <ion-input formControlName="ter"
+                         type="text">
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Quarta: </ion-label>
+              <ion-input formControlName="qua"
+                         type="text">
+              </ion-input>
+            </ion-item>
+          </ion-col>
+          
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Quinta: </ion-label>
+              <ion-input formControlName="qui"
+                         type="text">
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Sexta: </ion-label>
+              <ion-input formControlName="sex"
+                         type="text">
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Sábado: </ion-label>
+              <ion-input formControlName="sab"
+                         type="text">
+              </ion-input>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
   
       <ion-fab vertical="bottom"
                horizontal="end">
