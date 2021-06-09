@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="tertiary">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -15,33 +15,44 @@
                    type="text">
         </ion-input>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">Data de início: </ion-label>
-        <ion-input formControlName="dtInicio"
-                   type="text">
-        </ion-input>
+        <ion-datetime formControlName="dtInicio"
+                      display-format="DD de MMMM de YYYY"
+                      min="1930-01-01"
+                      cancel-text="Cancelar"
+                      done-text="Selecionar"
+                      [monthNames]="meses"
+                      [monthShortNames]="mesesAbreviados"></ion-datetime>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">Data final: </ion-label>
-        <ion-input formControlName="dtFim"
-                   type="text">
-        </ion-input>
+        <ion-datetime formControlName="dtFim"
+                      display-format="DD de MMMM de YYYY"
+                      min="1930-01-01"
+                      max="2050-12-31"
+                      cancel-text="Cancelar"
+                      done-text="Selecionar"
+                      [monthNames]="meses"
+                      [monthShortNames]="mesesAbreviados"></ion-datetime>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">Empresa: </ion-label>
-        <ion-input formControlName="empresaID"
-                   type="text">
-        </ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label position="floating">Empresa: </ion-label>
-        <ion-input formControlName="empresaNome"
-                   type="text">
-        </ion-input>
+        <ion-select formControlName="empresaID"
+                    [compareWith]="compareWith"
+                    multiple="false"
+                    ok-text="OK"
+                    cancel-text="Cancelar"
+                    name="empresas"
+                    (ionChange)='setaDadosEmpresa($event)'>
+          <ion-select-option *ngFor="let empresa of empresas"
+                             [value]="empresa.id">
+            {{empresa.nome}}
+          </ion-select-option>
+        </ion-select>
       </ion-item>
       
       <ion-item>
@@ -59,17 +70,15 @@
       </ion-item>
       
       <ion-item>
-        <ion-label position="floating">URL imagem: </ion-label>
+        <ion-label position="floating">URL da imagem: </ion-label>
         <ion-input formControlName="url_img"
                    type="text">
         </ion-input>
       </ion-item>
-      
+
       <ion-item>
-        <ion-label position="floating">Destaque: </ion-label>
-        <ion-input formControlName="destaque"
-                   type="text">
-        </ion-input>
+        <ion-label>Destaque? </ion-label>
+        <ion-checkbox formControlName="destaque"></ion-checkbox>
       </ion-item>
   
       <ion-fab vertical="bottom"

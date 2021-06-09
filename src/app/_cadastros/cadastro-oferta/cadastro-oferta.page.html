@@ -12,6 +12,9 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let oferta of ofertas">
+      <ion-thumbnail slot="start">
+        <ion-img src={{oferta.url_img}}></ion-img>
+      </ion-thumbnail>
       <ion-label>{{oferta.descricao}}</ion-label>
       <ion-buttons>
         <ion-button color="primary" [routerLink]="['edicao', oferta.id]">

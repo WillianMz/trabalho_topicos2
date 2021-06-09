@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { Empresa } from 'src/app/_modelos/empresa';
 import { Oferta } from 'src/app/_modelos/oferta';
+import { EmpresaService } from 'src/app/_servicos/empresa.service';
 import { OfertaService } from 'src/app/_servicos/oferta.service';
 
 @Component({
@@ -11,7 +13,36 @@ import { OfertaService } from 'src/app/_servicos/oferta.service';
   styleUrls: ['./form-oferta.component.scss'],
 })
 export class FormOfertaComponent implements OnInit {
+  mesesAbreviados = [
+    'Jan',
+    'Fev',
+    'Mar',
+    'Abr',
+    'Mai',
+    'Jun',
+    'Jul',
+    'Ago',
+    'Set',
+    'Out',
+    'Nov',
+    'Dez',
+  ];
+  meses = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro'
+  ];
 
+  private empresas: Empresa[];
   ofertaId: number;
   ofertaForm: FormGroup;
 
@@ -19,6 +50,7 @@ export class FormOfertaComponent implements OnInit {
     private toastController: ToastController,
     private activatedRoute: ActivatedRoute,
     private ofertaService: OfertaService,
+    private empresaService: EmpresaService,
     private router: Router,
   ) {
     
@@ -38,6 +70,7 @@ export class FormOfertaComponent implements OnInit {
    }
 
    ngOnInit() {
+     this.empresaService.getlAll().subscribe(empresas => this.empresas = empresas);
      const id = this.activatedRoute.snapshot.paramMap.get('id');
      if (id) {
         this.ofertaId = parseInt(id);
@@ -86,8 +119,35 @@ export class FormOfertaComponent implements OnInit {
     
   }
 
-  get nome() {
+  setaDadosEmpresa(event) {
+    if (event.detail.value) {
+       let empresaId = parseInt(event.detail.value);
+       this.empresaService
+        .getById(empresaId)
+        .subscribe((empresa) => {
+          this.ofertaForm.setControl('empresaNome', new FormControl(empresa.nome));
+        },
+        (erro) => {
+         console.error(erro);
+        }
+        );
+    }
+  }
+
+  get descricao() {
     return this.ofertaForm.get('descricao');
+  }
+
+  get url_img() {
+    return this.ofertaForm.get('url_img');
+  }
+
+  get empresaNome() {
+    return this.ofertaForm.get('empresaNome');
+  }
+
+  get empresaID() {
+    return this.ofertaForm.get('empresaID');
   }
 
 }

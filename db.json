@@ -125,48 +125,72 @@
       "dtInicio": "06/06/2021",
       "dtFim": "13/06/2021",
       "empresaID": 1,
-      "empresaNome": "EMPRESA TESTE",
       "detalhes": "Ofertas válidas até 13/06/2021 ou enquanto durarem os estoques",
       "informacoes": "Para mais informações acesse www.google.com.br",
       "url_img": "https://www.condor.com.br/marilan/assets/images/kv.png",
       "destaque": true,
+      "empresaNome": null,
       "id": 1
     },
     {
-      "id": 2,
       "descricao": "OFERTA DA HORA",
       "dtInicio": "06/06/2021",
       "dtFim": "13/06/2021",
       "empresaID": 1,
-      "empresaNome": "EMPRESA TESTE",
       "detalhes": "Ofertas válidas até 13/06/2021 ou enquanto durarem os estoques",
       "informacoes": "Para mais informações acesse www.google.com.br",
       "url_img": "https://image.freepik.com/psd-gratuitas/3d-render-ofertas-realistas-de-pascoa-no-brasil_363450-411.jpg",
-      "destaque": true
+      "destaque": true,
+      "empresaNome": null,
+      "id": 2
     },
     {
-      "id": 3,
       "descricao": "OFERTA DA HORA",
       "dtInicio": "06/06/2021",
       "dtFim": "13/06/2021",
       "empresaID": 1,
-      "empresaNome": "EMPRESA TESTE",
       "detalhes": "Ofertas válidas até 13/06/2021 ou enquanto durarem os estoques",
       "informacoes": "Para mais informações acesse www.google.com.br",
       "url_img": "https://www.sistemaguiacomercial.com.br/arquivos/cupom/20/bb204d6b4d7e5dd58bd01192504c2a74.jpg",
-      "destaque": false
+      "destaque": false,
+      "empresaNome": null,
+      "id": 3
     },
     {
-      "id": 4,
       "descricao": "OFERTA DA HORA",
       "dtInicio": "06/06/2021",
       "dtFim": "13/06/2021",
       "empresaID": 1,
-      "empresaNome": "EMPRESA TESTE",
       "detalhes": "Ofertas válidas até 13/06/2021 ou enquanto durarem os estoques",
       "informacoes": "Para mais informações acesse www.google.com.br",
       "url_img": "https://www.sistemaguiacomercial.com.br/arquivos/cupom/20/bb204d6b4d7e5dd58bd01192504c2a74.jpg",
-      "destaque": true
+      "destaque": true,
+      "empresaNome": null,
+      "id": 4
+    },
+    {
+      "descricao": "Oferta testes",
+      "dtInicio": "23132",
+      "dtFim": "231321",
+      "empresaID": 1,
+      "detalhes": "31232",
+      "informacoes": "3121",
+      "url_img": "https://cdn.pixabay.com/photo/2021/06/04/06/54/racket-6308994_960_720.jpg",
+      "destaque": true,
+      "empresaNome": "Tecla Prestação de Serviços Ltda-ME",
+      "id": 5
+    },
+    {
+      "descricao": "testestse",
+      "dtInicio": "2021-06-09T00:24:39.047-03:00",
+      "dtFim": "2020-02-26",
+      "empresaID": 2,
+      "detalhes": "tstestes",
+      "informacoes": "etestest",
+      "url_img": "setestse",
+      "destaque": true,
+      "empresaNome": "Mercado Laraus Ltda-ME",
+      "id": 6
     }
   ]
 }
