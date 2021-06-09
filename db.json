@@ -87,12 +87,11 @@
       "sex": "string",
       "sab": "string",
       "destaque": true,
-      "categoriaNome": "Serviços",
       "id": 1
     },
     {
-      "nome": "Mercado Laraus Ltda-ME",
-      "fantasia": "Larau`s Supermercados",
+      "nome": "MERCADO TESTE",
+      "fantasia": "GUIA SUPERMERCADOS",
       "sobre": "Descrição sobre a empresa",
       "endereco": "Av.Central",
       "telefone": "(48) 0000-0000",
