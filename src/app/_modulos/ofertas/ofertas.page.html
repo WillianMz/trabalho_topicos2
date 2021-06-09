@@ -11,6 +11,15 @@
 
 <ion-content>
 
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Puxe para atualizar"
+      refreshingSpinner="circles"
+      refreshingText="carregando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <ion-list *ngFor="let oferta of ofertas">
     <ion-item lines="none">
       <ion-card button [routerLink]="['/ofertas', oferta.id]">

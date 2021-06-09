@@ -26,6 +26,14 @@ export class EmpresasPage implements OnInit {
     this.consultar();
   }
 
+  refresh(event) {
+    this.consultar();
+
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
+  }
+
   procurar(event){
     this.filtro = event.target.value.toLowerCase();
     console.log(this.filtro);

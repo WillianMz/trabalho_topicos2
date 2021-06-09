@@ -21,6 +21,14 @@ export class OfertasPage implements OnInit {
     this.consultar();
   }
 
+  refresh(event) {
+    this.consultar();
+
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
+  }
+
   private consultar(){
     this.ofertaService.getAll().subscribe(
       (response) => {

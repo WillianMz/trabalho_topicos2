@@ -5,7 +5,7 @@ import { EmpresaService } from './../../_servicos/empresa.service';
 import { Component, OnInit } from '@angular/core';
 import { Empresa } from 'src/app/_modelos/empresa';
 import { Categoria } from 'src/app/_modelos/categoria';
-import { MenuController } from '@ionic/angular';
+import { AlertController, MenuController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +34,7 @@ export class HomePage implements OnInit {
     private empresaService: EmpresaService,
     private ofertaService: OfertaService,
     private categoriaService: CategoriaService,
-    private menu: MenuController
+    private toast: ToastController
   ) { }
 
   ngOnInit() {
@@ -47,6 +47,9 @@ export class HomePage implements OnInit {
     this.categoriaService.getDestaque().subscribe(
       (response) => {
         this.categorias = response;
+      },
+      (error) => {
+        this.exibirAlerta('Ocorreu um erro ao consultar dados', 10000, 'danger');
       }
     )
   }
@@ -56,6 +59,9 @@ export class HomePage implements OnInit {
       (response) => {
         this.empresas = response;
         console.log(this.empresas);
+      },
+      (error) => {
+        this.exibirAlerta('Ocorreu um erro ao consultar dados', 10000, 'warning');
       }
     )
   }
@@ -65,8 +71,20 @@ export class HomePage implements OnInit {
       (response) => {
         this.ofertas = response;
         console.log(this.ofertas);
+      },
+      (error) => {
+        this.exibirAlerta('Ocorreu um erro ao consultar dados', 10000, 'danger');
       }
     )
+  }
+
+  private exibirAlerta(msg: string, duracao: number, cor: string){
+    this.toast.create({
+      message: msg,
+      duration: duracao,
+      keyboardClose: true,
+      color: cor
+    }).then(t => t.present());
   }
 
 }
