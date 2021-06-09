@@ -24,6 +24,15 @@
 
 <ion-content>
 
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Puxe para atualizar"
+      refreshingSpinner="circles"
+      refreshingText="carregando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <ion-list *ngFor="let emp of empresasFiltradas">
 
     <ion-item button [routerLink]="['/empresas',emp.id]">

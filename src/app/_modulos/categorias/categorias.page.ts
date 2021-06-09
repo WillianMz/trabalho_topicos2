@@ -23,6 +23,14 @@ export class CategoriasPage implements OnInit {
     this.listarCategorias();
   }
 
+  refresh(event) {
+    this.listarCategorias();
+
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
+  }
+
   procurar(event){
     this.filtro = event.target.value.toLowerCase();
     console.log(this.filtro);
