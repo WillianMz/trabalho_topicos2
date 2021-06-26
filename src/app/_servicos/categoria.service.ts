@@ -8,7 +8,8 @@ import { Categoria } from '../_modelos/categoria';
 })
 export class CategoriaService {
 
-  private url = 'http://localhost:3000/categorias';
+  // private url = 'http://localhost:3000/categorias';
+  private url = 'http://localhost:8080/trabalho_topicos2-api-1.0.0/resources/categorias';
 
   constructor(
     private http: HttpClient
