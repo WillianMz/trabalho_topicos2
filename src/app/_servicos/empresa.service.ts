@@ -8,7 +8,8 @@ import { Empresa } from '../_modelos/empresa';
 })
 export class EmpresaService {
 
-  private url = "http://localhost:3000/empresas";
+  // private url = "http://localhost:3000/empresas";
+  private url = 'http://localhost:8080/trabalho_topicos2-api-1.0.0/resources/empresas';
 
   constructor(
     private http: HttpClient
