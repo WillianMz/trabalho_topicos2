@@ -8,7 +8,8 @@ import { Oferta } from '../_modelos/oferta';
 })
 export class OfertaService {
 
-  private url = "http://localhost:3000/ofertas";
+  // private url = "http://localhost:3000/ofertas";
+  private url = "http://localhost:8080/trabalho_topicos2-api-1.0.0/resources/ofertas";
 
   constructor(
     private http: HttpClient

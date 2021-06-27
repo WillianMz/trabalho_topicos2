@@ -1,3 +1,5 @@
+import { Categoria } from "./categoria";
+
 export class Empresa {
   id?: number;
   nome?: string;
@@ -15,8 +17,9 @@ export class Empresa {
   url_logo?: string;
   url_capa?:string;
 
-  categoriaId?: number;
-  categoriaNome?: string;
+  categoria: Categoria;
+  // categoriaId?: number;
+  // categoriaNome?: string;
 
   //horario
   dom?: string;

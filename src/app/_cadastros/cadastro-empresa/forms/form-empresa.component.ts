@@ -31,10 +31,7 @@ export class FormEmpresaComponent implements OnInit {
         nome: '',
         fantasia: '',
         sobre: '',
-        horario: '',
         endereco: '',
-        cidadeId: null,
-        cidadeNome: '',
         telefone: '',
         whatsapp: '',
         facebook: '',
@@ -43,8 +40,7 @@ export class FormEmpresaComponent implements OnInit {
         url_logo: '',
         url_capa: '',
 
-        categoriaId: null,
-        categoriaNome: '',
+        categoria: null,
 
         //horario
         dom: '',
@@ -69,13 +65,14 @@ export class FormEmpresaComponent implements OnInit {
          .getById(this.empresaId)
          .subscribe((empresa) => {
            this.inicializaFormulario(empresa);
+           this.empresaForm.setControl('categoria', new FormControl(this.categorias.find(x => x.id === this.empresaForm.get(`categoria`).value.id)));
+           //this.empresaForm.get(`categoria`).setValue(this.categorias.find(x => x.id === this.empresaForm.get(`categoria`).value.id));
          },
          (erro) => {
           console.error(erro);
         }
          );
      }
-     
    }
 
   inicializaFormulario(empresa: Empresa) {
@@ -101,8 +98,7 @@ export class FormEmpresaComponent implements OnInit {
         url_logo: new FormControl(empresa.url_logo),
         url_capa: new FormControl(empresa.url_capa),
 
-        categoriaId: new FormControl(empresa.categoriaId, Validators.required),
-        categoriaNome: new FormControl(empresa.categoriaNome),
+        categoria: new FormControl(empresa.categoria, Validators.required),
 
         //horario
         dom: new FormControl(empresa.dom),
@@ -135,20 +131,20 @@ export class FormEmpresaComponent implements OnInit {
     
   }
 
-  setaDadosCategoria(event) {
-    if (event.detail.value) {
-       let categoriaId = parseInt(event.detail.value);
-       this.categoriaService
-        .getCategoriaById(categoriaId)
-        .subscribe((categoria) => {
-          this.empresaForm.setControl('categoriaNome', new FormControl(categoria.nome));
-        },
-        (erro) => {
-         console.error(erro);
-        }
-        );
-    }
-  }
+  // setaDadosCategoria(event) {
+  //   if (event.detail.value) {
+  //      let categoriaId = parseInt(event.detail.value);
+  //      this.categoriaService
+  //       .getCategoriaById(categoriaId)
+  //       .subscribe((categoria) => {
+  //         this.empresaForm.setControl('categoriaNome', new FormControl(categoria.nome));
+  //       },
+  //       (erro) => {
+  //        console.error(erro);
+  //       }
+  //       );
+  //   }
+  // }
 
   get nome() {
     return this.empresaForm.get('nome');
@@ -162,11 +158,15 @@ export class FormEmpresaComponent implements OnInit {
     return this.empresaForm.get('telefone');
   }
 
-  get categoriaId() {
-    return this.empresaForm.get('categoriaId');
+  get categoria() {
+    return this.empresaForm.get('categoria');
   }
 
-  get categoriaNome() {
-    return this.empresaForm.get('categoriaNome');
+  cancelar() {
+    this.router.navigate(['cadastro-empresa']);
   }
+
+  // get categoriaNome() {
+  //   return this.empresaForm.get('categoriaNome');
+  // }
 }

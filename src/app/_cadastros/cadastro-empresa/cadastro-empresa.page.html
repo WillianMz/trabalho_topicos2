@@ -13,14 +13,14 @@
   <ion-list>
     <ion-item *ngFor="let empresa of empresas">
       <ion-thumbnail slot="start">
-        <ion-img src={{empresa.url_logo}}></ion-img>
+        <ion-img src="{{empresa.url_logo || '../../../assets/imagens/sem_imagem.png'}}" (ionError)="imagemInvalida($event)"></ion-img>
       </ion-thumbnail>
       <ion-label>{{empresa.nome}}</ion-label>
       <ion-buttons>
-        <ion-button color="primary" [routerLink]="['edicao', empresa.id]">
+        <ion-button color="tertiary" [routerLink]="['edicao', empresa.id]">
           <ion-icon name="create" slot="icon-only"></ion-icon>
         </ion-button>
-        <ion-button color="primary" (click)="confirmarExclusao(empresa)">
+        <ion-button color="tertiary" (click)="confirmarExclusao(empresa)">
           <ion-icon name="trash" slot="icon-only"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -29,7 +29,7 @@
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end">
-    <ion-fab-button [routerLink]="['cadastro']">
+    <ion-fab-button color="tertiary" [routerLink]="['cadastro']">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

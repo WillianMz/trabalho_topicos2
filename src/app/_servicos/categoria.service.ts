@@ -17,7 +17,6 @@ export class CategoriaService {
 
   getAll(): Observable<Categoria[]>{
     let response = this.http.get<Categoria[]>(this.url);
-    console.log(response);
     return response;
   }
 

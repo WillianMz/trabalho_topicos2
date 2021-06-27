@@ -97,20 +97,19 @@
 
       <ion-item>
         <ion-label position="floating">Categoria: </ion-label>
-        <ion-select formControlName="categoriaId"
+        <ion-select formControlName="categoria"
                     [compareWith]="compareWith"
                     multiple="false"
                     ok-text="OK"
                     cancel-text="Cancelar"
-                    name="categorias"
-                    (ionChange)='setaDadosCategoria($event)'>
+                    name="categorias">
           <ion-select-option *ngFor="let categoria of categorias"
-                             [value]="categoria.id">
+                             [value]="categoria">
             {{categoria.nome}}
           </ion-select-option>
         </ion-select>
-        <ion-text color="danger" *ngIf="categoriaId.errors">
-          <small *ngIf="categoriaId.errors.required && (categoriaId.dirty || categoriaId.touched)">
+        <ion-text color="danger" *ngIf="categoria.errors">
+          <small *ngIf="categoria.errors.required && (categoria.dirty || categoria.touched)">
             O campo Categoria é obrigatório
           </small>
         </ion-text>
@@ -118,7 +117,7 @@
 
       <ion-item>
         <ion-label>Destaque? </ion-label>
-        <ion-checkbox formControlName="destaque"></ion-checkbox>
+        <ion-checkbox formControlName="destaque" slot="start"></ion-checkbox>
       </ion-item>
 
       <ion-grid>
@@ -194,10 +193,15 @@
 
         </ion-row>
       </ion-grid>
-  
+      <ion-fab vertical="bottom"
+               horizontal="start">
+        <ion-fab-button color="tertiary" (click)="cancelar()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
       <ion-fab vertical="bottom"
                horizontal="end">
-        <ion-fab-button (click)="salvar()" [disabled]="!empresaForm.valid">
+        <ion-fab-button color="tertiary" (click)="salvar()" [disabled]="!empresaForm.valid">
           <ion-icon name="checkmark-outline"></ion-icon>
         </ion-fab-button>
       </ion-fab>

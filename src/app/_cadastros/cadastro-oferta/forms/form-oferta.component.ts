@@ -59,8 +59,7 @@ export class FormOfertaComponent implements OnInit {
         descricao: '',
         dtInicio: '',
         dtFim: '',
-        empresaID: null,
-        empresaNome: '',
+        empresa: null,
         detalhes: '',
         informacoes: '',
         url_img: '',
@@ -78,6 +77,9 @@ export class FormOfertaComponent implements OnInit {
          .getById(this.ofertaId)
          .subscribe((oferta) => {
            this.inicializaFormulario(oferta);
+           console.log(this.empresas);
+            
+           this.ofertaForm.setControl('empresa', new FormControl(this.empresas.find(x => x.id === this.ofertaForm.get(`empresa`).value.id)));
          },
          (erro) => {
           console.error(erro);
@@ -92,8 +94,7 @@ export class FormOfertaComponent implements OnInit {
         descricao: new FormControl(oferta.descricao, Validators.required),
         dtInicio: new FormControl(oferta.dtInicio, Validators.required),
         dtFim: new FormControl(oferta.dtFim, Validators.required),
-        empresaID:  new FormControl(oferta.empresaID, Validators.required),
-        empresaNome:  new FormControl(oferta.empresaNome),
+        empresa:  new FormControl(oferta.empresa, Validators.required),
         detalhes: new FormControl(oferta.detalhes),
         informacoes: new FormControl(oferta.informacoes),
         url_img: new FormControl(oferta.url_img),
@@ -105,7 +106,7 @@ export class FormOfertaComponent implements OnInit {
   salvar() {
     const oferta = {...this.ofertaForm.value, id: this.ofertaId};
     this.ofertaService.salvar(oferta).subscribe(
-      () => this.router.navigate(['cadastro-oferta']),
+      () => this.router.navigate(['cadastro-oferta'], { replaceUrl: true }),
       (erro) => {
         console.error(erro);
         this.toastController.create({
@@ -119,20 +120,20 @@ export class FormOfertaComponent implements OnInit {
     
   }
 
-  setaDadosEmpresa(event) {
-    if (event.detail.value) {
-       let empresaId = parseInt(event.detail.value);
-       this.empresaService
-        .getById(empresaId)
-        .subscribe((empresa) => {
-          this.ofertaForm.setControl('empresaNome', new FormControl(empresa.nome));
-        },
-        (erro) => {
-         console.error(erro);
-        }
-        );
-    }
-  }
+  // setaDadosEmpresa(event) {
+  //   if (event.detail.value) {
+  //      let empresaId = parseInt(event.detail.value);
+  //      this.empresaService
+  //       .getById(empresaId)
+  //       .subscribe((empresa) => {
+  //         this.ofertaForm.setControl('empresaNome', new FormControl(empresa.nome));
+  //       },
+  //       (erro) => {
+  //        console.error(erro);
+  //       }
+  //       );
+  //   }
+  // }
 
   get descricao() {
     return this.ofertaForm.get('descricao');
@@ -146,12 +147,16 @@ export class FormOfertaComponent implements OnInit {
     return this.ofertaForm.get('dtFim');
   }
 
-  get empresaID() {
-    return this.ofertaForm.get('empresaID');
+  get empresa() {
+    return this.ofertaForm.get('empresa');
   }
 
-  get empresaNome() {
-    return this.ofertaForm.get('empresaNome');
+  cancelar() {
+    this.router.navigate(['cadastro-oferta'], { replaceUrl: true });
   }
+
+  // get empresaNome() {
+  //   return this.ofertaForm.get('empresaNome');
+  // }
 
 }

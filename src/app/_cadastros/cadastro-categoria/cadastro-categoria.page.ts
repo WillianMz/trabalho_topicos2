@@ -70,6 +70,10 @@ export class CadastroCategoriaPage implements OnInit {
     
   }
 
+  imagemInvalida(event) {
+    event.srcElement.shadowRoot.children[0].src = "../../../assets/imagens/sem_imagem.png";
+  }
+
   ionViewWillEnter() {
     this.listar();
   }

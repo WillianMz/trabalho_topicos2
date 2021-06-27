@@ -41,10 +41,15 @@
           </small>
         </ion-text>
       </ion-item>
-  
+      <ion-fab vertical="bottom"
+               horizontal="start">
+        <ion-fab-button color="tertiary" (click)="cancelar()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
       <ion-fab vertical="bottom"
                horizontal="end">
-        <ion-fab-button (click)="salvar()" [disabled]="!categoriaForm.valid">
+        <ion-fab-button color="tertiary" (click)="salvar()" [disabled]="!categoriaForm.valid">
           <ion-icon name="checkmark-outline"></ion-icon>
         </ion-fab-button>
       </ion-fab>

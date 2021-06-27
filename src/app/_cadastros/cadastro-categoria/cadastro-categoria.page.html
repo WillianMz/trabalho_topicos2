@@ -13,14 +13,14 @@
   <ion-list>
     <ion-item *ngFor="let categoria of categorias">
       <ion-thumbnail slot="start">
-        <ion-img src={{categoria.url_img}}></ion-img>
+        <ion-img src="{{categoria.url_img || '../../../assets/imagens/sem_imagem.png'}}" (ionError)="imagemInvalida($event)"></ion-img>
       </ion-thumbnail>
       <ion-label>{{categoria.nome}}</ion-label>
       <ion-buttons>
-        <ion-button color="primary" [routerLink]="['edicao', categoria.id]">
+        <ion-button color="tertiary" [routerLink]="['edicao', categoria.id]">
           <ion-icon name="create" slot="icon-only"></ion-icon>
         </ion-button>
-        <ion-button color="primary" (click)="confirmarExclusao(categoria)">
+        <ion-button color="tertiary" (click)="confirmarExclusao(categoria)">
           <ion-icon name="trash" slot="icon-only"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -29,7 +29,7 @@
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end">
-    <ion-fab-button [routerLink]="['cadastro']">
+    <ion-fab-button color="tertiary" [routerLink]="['cadastro']">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

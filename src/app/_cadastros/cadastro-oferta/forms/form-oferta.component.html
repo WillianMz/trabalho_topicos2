@@ -56,20 +56,19 @@
 
       <ion-item>
         <ion-label position="floating">Empresa: </ion-label>
-        <ion-select formControlName="empresaID"
+        <ion-select formControlName="empresa"
                     [compareWith]="compareWith"
                     multiple="false"
                     ok-text="OK"
                     cancel-text="Cancelar"
-                    name="empresas"
-                    (ionChange)='setaDadosEmpresa($event)'>
+                    name="empresas">
           <ion-select-option *ngFor="let empresa of empresas"
-                             [value]="empresa.id">
+                             [value]="empresa">
             {{empresa.nome}}
           </ion-select-option>
         </ion-select>
-        <ion-text color="danger" *ngIf="empresaID.errors">
-          <small *ngIf="empresaID.errors.required && (empresaID.dirty || empresaID.touched)">
+        <ion-text color="danger" *ngIf="empresa.errors">
+          <small *ngIf="empresa.errors.required && (empresa.dirty || empresa.touched)">
             O campo Empresa é obrigatório
           </small>
         </ion-text>
@@ -98,12 +97,19 @@
 
       <ion-item>
         <ion-label>Destaque? </ion-label>
-        <ion-checkbox formControlName="destaque"></ion-checkbox>
+        <ion-checkbox formControlName="destaque" slot="start"></ion-checkbox>
       </ion-item>
+
+      <ion-fab vertical="bottom"
+               horizontal="start">
+        <ion-fab-button color="tertiary" (click)="cancelar()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
   
       <ion-fab vertical="bottom"
                horizontal="end">
-        <ion-fab-button (click)="salvar()" [disabled]="!ofertaForm.valid">
+        <ion-fab-button color="tertiary" (click)="salvar()" [disabled]="!ofertaForm.valid">
           <ion-icon name="checkmark-outline"></ion-icon>
         </ion-fab-button>
       </ion-fab>

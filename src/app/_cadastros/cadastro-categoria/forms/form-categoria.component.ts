@@ -73,6 +73,10 @@ export class FormCategoriaComponent implements OnInit {
     
   }
 
+  cancelar() {
+    this.router.navigate(['cadastro-categoria']);
+  }
+
   get nome() {
     return this.categoriaForm.get('nome');
   }
