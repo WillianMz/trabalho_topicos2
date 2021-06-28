@@ -7,7 +7,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-  
+
     <form [formGroup]="ofertaForm">
       <ion-item>
         <ion-label position="floating">Descrição: </ion-label>
@@ -57,7 +57,7 @@
       <ion-item>
         <ion-label position="floating">Empresa: </ion-label>
         <ion-select formControlName="empresa"
-                    [compareWith]="compareWith"
+
                     multiple="false"
                     ok-text="OK"
                     cancel-text="Cancelar"
@@ -73,21 +73,21 @@
           </small>
         </ion-text>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">Detalhes: </ion-label>
         <ion-input formControlName="detalhes"
                    type="text">
         </ion-input>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">Informacoes: </ion-label>
         <ion-input formControlName="informacoes"
                    type="text">
         </ion-input>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">URL da imagem: </ion-label>
         <ion-input formControlName="url_img"
@@ -106,7 +106,7 @@
           <ion-icon name="arrow-back-outline"></ion-icon>
         </ion-fab-button>
       </ion-fab>
-  
+
       <ion-fab vertical="bottom"
                horizontal="end">
         <ion-fab-button color="tertiary" (click)="salvar()" [disabled]="!ofertaForm.valid">

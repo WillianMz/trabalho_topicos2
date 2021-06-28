@@ -14,7 +14,7 @@ import { EmpresaService } from 'src/app/_servicos/empresa.service';
 })
 export class FormEmpresaComponent implements OnInit {
 
-  private categorias: Categoria[];
+  categorias: Categoria[];
   empresaId: number;
   empresaForm: FormGroup;
 
@@ -25,7 +25,7 @@ export class FormEmpresaComponent implements OnInit {
     private categoriaService: CategoriaService,
     private router: Router,
   ) {
-    
+
     let empresa = {
         id: null,
         nome: '',
@@ -111,7 +111,7 @@ export class FormEmpresaComponent implements OnInit {
 
         destaque: new FormControl(empresa.destaque)
     });
-    
+
   }
 
   salvar() {
@@ -128,7 +128,7 @@ export class FormEmpresaComponent implements OnInit {
         }).then(t => t.present());
       }
     );
-    
+
   }
 
   // setaDadosCategoria(event) {

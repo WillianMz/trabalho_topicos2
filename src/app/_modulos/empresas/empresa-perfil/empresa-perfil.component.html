@@ -13,10 +13,19 @@
 <ion-content>
 
   <ion-card>
-    <ion-img [src]="[empresa.url_logo]"></ion-img>
+    <ion-img src="{{empresa.url_capa || '../../../assets/imagens/sem_imagem.png'}}"></ion-img>
 
     <ion-card-content>
-      <h1><strong>{{empresa.fantasia}}</strong></h1>
+
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <img src="{{empresa.url_logo || '../../../assets/imagens/sem_imagem.png'}}">
+        </ion-thumbnail>
+        <ion-label>{{empresa.fantasia}}</ion-label>
+      </ion-item>
+
+
+      <!-- <h1><strong>{{empresa.fantasia}}</strong></h1> -->
       <h3>{{empresa.nome}}</h3>
       <p>
         {{empresa.endereco}} - {{empresa.cidadeNome}}

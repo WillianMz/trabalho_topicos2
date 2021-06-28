@@ -13,7 +13,7 @@
 
   <ion-slides mode="md" pager="md" scrollbar="md">
     <ion-slide>
-      <img [src]="[oferta.url_img]" alt="" height="40" width="40">
+      <img src="{{oferta.url_img}}" alt="" height="40" width="40">
      </ion-slide>
 
   </ion-slides>
@@ -21,7 +21,7 @@
   <ion-card >
 
     <ion-card-header>
-      <ion-card-subtitle>{{oferta.empresaNome}}</ion-card-subtitle>
+      <ion-card-subtitle>{{empresa.fantasia}}</ion-card-subtitle>
       <ion-card-title>{{oferta.descricao}}</ion-card-title>
     </ion-card-header>
   </ion-card>

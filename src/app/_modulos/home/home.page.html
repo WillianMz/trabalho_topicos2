@@ -1,9 +1,14 @@
 <ion-header>
   <ion-toolbar color="tertiary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Guia Comercial</ion-title>
+    <ion-item color="tertiary" lines="none">
+      <ion-thumbnail slot="start">
+        <img src="../../../assets/icon/mapa.png">
+      </ion-thumbnail>
+      <ion-label>Guia Comercial</ion-label>
+
+      <ion-icon slot="end" name="settings-outline"></ion-icon>
+
+    </ion-item>
   </ion-toolbar>
 
   <ion-toolbar color="tertiary">
@@ -18,7 +23,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-img src="../../../assets/imagens/banner.jpg"></ion-img>
+
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Puxe para atualizar"
+      refreshingSpinner="circles"
+      refreshingText="carregando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
 
   <ion-card>
     <ion-card-header>
@@ -26,11 +40,14 @@
     </ion-card-header>
 
     <ion-card-content>
-      <ion-slides mode="md" pager="md" scrollbar="md" [options]="slideOpts">
+      <ion-slides mode="md" pager="md" scrollbar="md" [options]="slideOpts" *ngIf="empresas?.length">
         <ion-slide *ngFor="let emp of empresas">
           <ion-img [src]="[emp.url_logo]" [routerLink]="['/empresas',emp.id]"></ion-img>
         </ion-slide>
       </ion-slides>
+
+      <ion-label *ngIf="!empresas?.length" >Nenhuma empresa em destaque encontrada</ion-label>
+
     </ion-card-content>
 
   </ion-card>
@@ -42,14 +59,14 @@
     </ion-card-header>
 
     <ion-card-content>
-      <ion-slides mode="md" pager="md" scrollbar="md" [options]="slideOpts">
+      <ion-slides mode="md" pager="md" scrollbar="md" [options]="slideOpts" *ngIf="ofertas?.length">
         <ion-slide *ngFor="let oferta of ofertas">
           <ion-img [src]="[oferta.url_img]" [routerLink]="['/ofertas', oferta.id]"></ion-img>
         </ion-slide>
       </ion-slides>
+
+      <ion-label *ngIf="!ofertas?.length">Nenhuma oferta em destaque encontrada</ion-label>
+
     </ion-card-content>
-
   </ion-card>
-
-
 </ion-content>

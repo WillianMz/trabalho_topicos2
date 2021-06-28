@@ -7,7 +7,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-  
+
     <form [formGroup]="empresaForm">
       <ion-item>
         <ion-label position="floating">Razão social: </ion-label>
@@ -23,7 +23,7 @@
           </small>
         </ion-text>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">Nome fantasia: </ion-label>
         <ion-input formControlName="fantasia"
@@ -38,56 +38,56 @@
           </small>
         </ion-text>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">Sobre: </ion-label>
         <ion-input formControlName="sobre"
                    type="text">
         </ion-input>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">Endereço: </ion-label>
         <ion-input formControlName="endereco"
                    type="text">
         </ion-input>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">Telefone: </ion-label>
         <ion-input formControlName="telefone"
                    type="text">
         </ion-input>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">WhatsApp: </ion-label>
         <ion-input formControlName="whatsapp"
                    type="text">
         </ion-input>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">Facebook: </ion-label>
         <ion-input formControlName="facebook"
                    type="text">
         </ion-input>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">Instagram: </ion-label>
         <ion-input formControlName="instagram"
                    type="text">
         </ion-input>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">URL da logo: </ion-label>
         <ion-input formControlName="url_logo"
                    type="text">
         </ion-input>
       </ion-item>
-      
+
       <ion-item>
         <ion-label position="floating">URL da capa: </ion-label>
         <ion-input formControlName="url_capa"
@@ -98,7 +98,6 @@
       <ion-item>
         <ion-label position="floating">Categoria: </ion-label>
         <ion-select formControlName="categoria"
-                    [compareWith]="compareWith"
                     multiple="false"
                     ok-text="OK"
                     cancel-text="Cancelar"
@@ -125,7 +124,7 @@
           <ion-text color="primary">
             Horário de funcionamento
           </ion-text>
-        </ion-row> 
+        </ion-row>
 
         <ion-row>
           <ion-col>
@@ -163,7 +162,7 @@
               </ion-input>
             </ion-item>
           </ion-col>
-          
+
           <ion-col>
             <ion-item>
               <ion-label position="floating">Quinta: </ion-label>

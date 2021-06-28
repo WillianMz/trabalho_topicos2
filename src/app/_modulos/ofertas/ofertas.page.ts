@@ -33,6 +33,8 @@ export class OfertasPage implements OnInit {
     this.ofertaService.getAll().subscribe(
       (response) => {
         this.ofertas = response;
+        console.log(response);
+        console.log(this.ofertas);
       },
       (error) => {
         this.exibirAlerta('Ocorreu um erro ao consultar dados', 5000, 'danger');

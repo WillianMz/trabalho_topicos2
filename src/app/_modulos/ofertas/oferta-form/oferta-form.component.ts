@@ -1,3 +1,4 @@
+import { Empresa } from './../../../_modelos/empresa';
 import { OfertaService } from './../../../_servicos/oferta.service';
 import { Component, OnInit } from '@angular/core';
 import { Oferta } from 'src/app/_modelos/oferta';
@@ -13,6 +14,7 @@ export class OfertaFormComponent implements OnInit {
 
   ofertaID: number;
   oferta: Oferta = new Oferta;
+  empresa: Empresa = new Empresa;
 
   constructor(
     private ofertaService: OfertaService,
@@ -32,6 +34,8 @@ export class OfertaFormComponent implements OnInit {
       this.ofertaService.getById(this.ofertaID).subscribe(
         (response) => {
           this.oferta = response;
+          this.empresa = this.oferta.empresa;
+          console.log(this.empresa);
         },
         (error) => {
           this.exibirAlerta('Ocorreu um erro ao consultar dados', 5000, 'danger');

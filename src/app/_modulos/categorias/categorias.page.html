@@ -35,7 +35,7 @@
 
     <ion-item button [routerLink]="['/empresas/categoria/', catg.id]">
       <ion-thumbnail slot="start">
-        <img src="{{catg.url_img}}">
+        <img src="{{catg.url_img || '../../../assets/imagens/sem_imagem.png'}}">
       </ion-thumbnail>
       <ion-label>{{catg.nome}}</ion-label>
     </ion-item>

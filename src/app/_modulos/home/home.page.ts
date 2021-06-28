@@ -43,6 +43,15 @@ export class HomePage implements OnInit {
     this.categoriasDestaque();
   }
 
+  refresh(event) {
+    this.empresasDestaque();
+    this.ofertasDestaque();
+
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
+  }
+
   private categoriasDestaque(){
     this.categoriaService.getDestaque().subscribe(
       (response) => {

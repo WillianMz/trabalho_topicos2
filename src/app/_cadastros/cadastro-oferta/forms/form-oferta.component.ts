@@ -42,7 +42,7 @@ export class FormOfertaComponent implements OnInit {
     'Dezembro'
   ];
 
-  private empresas: Empresa[];
+  empresas: Empresa[];
   ofertaId: number;
   ofertaForm: FormGroup;
 
@@ -53,7 +53,7 @@ export class FormOfertaComponent implements OnInit {
     private empresaService: EmpresaService,
     private router: Router,
   ) {
-    
+
     let oferta = {
         id: null,
         descricao: '',
@@ -78,7 +78,7 @@ export class FormOfertaComponent implements OnInit {
          .subscribe((oferta) => {
            this.inicializaFormulario(oferta);
            console.log(this.empresas);
-            
+
            this.ofertaForm.setControl('empresa', new FormControl(this.empresas.find(x => x.id === this.ofertaForm.get(`empresa`).value.id)));
          },
          (erro) => {
@@ -86,7 +86,7 @@ export class FormOfertaComponent implements OnInit {
         }
          );
      }
-     
+
    }
 
   inicializaFormulario(oferta: Oferta) {
@@ -100,7 +100,7 @@ export class FormOfertaComponent implements OnInit {
         url_img: new FormControl(oferta.url_img),
         destaque: new FormControl(oferta.destaque)
     });
-    
+
   }
 
   salvar() {
@@ -117,7 +117,7 @@ export class FormOfertaComponent implements OnInit {
         }).then(t => t.present());
       }
     );
-    
+
   }
 
   // setaDadosEmpresa(event) {
